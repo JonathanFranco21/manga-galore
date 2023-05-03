@@ -1,14 +1,14 @@
 The Manga Galore!! Web Application Documentation
 by Jonathan Franco
 
-    This is the Manga Galore!! web application project is a project 
+This is the Manga Galore!! web application project is a project 
 that serves as a spiritual sequel to the Anime Galore!! webpage 
 that is on GitHub pages, in which the link is provided here in 
 the documentation: 
 
 https://jonathanfranco21.github.io/Anime_And_Manga_Project/
 
-    This web application is an application that connects to a MongoDB 
+This web application is an application that connects to a MongoDB 
 database that consists of several collections, which include manga, 
 manga_instances, author, and genre. These four are used to help organize 
 several important factors that can help anime and manga fans to be able 
@@ -19,7 +19,7 @@ well. This README.md file will go over the necessary functions, files, and
 libraries that help make this web application functional and appealing in 
 both the user experience (UX) and the user interface (UI).
 
-    First will be the libraries used to help make the web application 
+First will be the libraries used to help make the web application 
 function the way that it needs to. These libraries include async Version 
 ^3.2.4 (a library that helps let different multiple requests to be sent 
 from the client to the server easier and quicker), cookie-parser Version 
@@ -39,7 +39,7 @@ library that helps render HTML pages in an easier fashion and it helps the
 programmer to write less code). Each of these libraries are all installed 
 through the command npm I or npm install.
 
-    What helps the user to have a good user experience is with the front-end 
+What helps the user to have a good user experience is with the front-end 
 side with using .pug files. .pug files are HTML template files that will be 
 rendered correctly and can use css files to be able to stylize the front end 
 the way the programmer wishes. Css files are found in the public folder in 
@@ -56,7 +56,7 @@ web application, the path has to be a relative path, so it would be
 local machine instead of having to store it on a database and grabbing the file 
 from there.
 
-    All .pug files are found within the views folder and there are many pug 
+All .pug files are found within the views folder and there are many pug 
 files. This includes four pug files that help form the manga details, manga 
 delete options, manga list, and a manga form to add another entry to the 
 manga collection on the MongoDB database, the mangainstance details, 
@@ -74,7 +74,7 @@ and showed first, and a layout.pug file that will help provide the structure of
 the sidebar navigation that is shown on the main page. This is followed by many
 JavaScript files that help make up the back-end work for the user. 
 
-    There are several folders to help organize the necessary functions of 
+There are several folders to help organize the necessary functions of 
 the web application. For example, in the controllers folder, there are the 
 authorController, genreController, mangaController, and mangainstanceController 
 JavaScript files that help to form the main pages structures, forms, provide 
