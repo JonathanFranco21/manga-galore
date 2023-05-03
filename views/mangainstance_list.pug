@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each val in mangainstance_list
+      li
+        a(href=val.url) #{val.manga.title} : #{val.imprint} -
+        if val.status=='Currently Publishing'
+          span.text-success #{val.status}
+        else
+          span.text-warning #{val.status}
+        if val.status!='Currently Publishing'
+          span  (Due: #{val.due_back_formatted} )
+
+    else
+      li There are no manga copies in this library.
+
+  img(src='/images/Ryoma.jpg' alt='Royoma Echizen' style='height: 400px;') 
+  h5 Ryoma Echizen 

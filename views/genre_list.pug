@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+   
+  ul 
+    each genre in list_genres 
+      li 
+        a(href=genre.url) #{genre.name}
+
+    else 
+      li There are no genre.
+
+  img(src='/images/Hinata.jpg' alt='Shoyo Hinata' style='height: 400px;') 
+  h5 Shoyo Hinata 

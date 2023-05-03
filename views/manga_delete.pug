@@ -1,0 +1,47 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{manga.title}
+  
+  p #[strong Author:] 
+    a(href=manga.author.url) #{manga.author.name}
+  p #[strong Summary:] #{manga.summary}
+  p #[strong ISBN:] #{manga.isbn}
+  p #[strong Genre:] 
+    each val in manga.genre
+      a(href=val.url) #{val.name}
+      |, 
+
+  hr
+  
+  if manga_instances.length
+  
+    p #[strong Delete the following copies before attempting to delete this Manga.]
+  
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Copies
+    
+      each manga_copy in manga_instances
+        hr
+        if manga_copy.status=='Available'
+          p.text-success #{manga_copy.status}
+        else if manga_copy.status=='Maintenance'
+          p.text-danger #{manga_copy.status}
+        else
+          p.text-warning #{manga_copy.status} 
+        p #[strong Imprint:] #{manga_copy.imprint}
+        if manga_copy.status!='Available'
+          p #[strong Due back:] #{manga_copy.due_back}
+        p #[strong Id:] 
+          a(href=manga_copy.url) #{manga_copy._id}
+
+  else
+    p Do you really want to delete this Manga?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#id.form-control(type='hidden',name='id', required='true', value=manga._id )
+
+      button.btn.btn-primary(type='submit') Delete

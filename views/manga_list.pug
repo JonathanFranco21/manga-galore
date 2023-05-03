@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each manga in manga_list
+      li
+        a(href=manga.url) #{manga.title}
+        |  (#{manga.author.name})
+
+    else
+      li There are no mangas.
+
+  img(src='/images/Izuku.jpg' alt='Izuku Midoriya' style='height: 400px;') 
+  h5 Izuku Midoriya 

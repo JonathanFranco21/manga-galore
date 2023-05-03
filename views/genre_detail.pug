@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+  h1 Genre: #{genre.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Mangas
+    
+    dl
+    each manga in genre_mangas
+      dt 
+        a(href=manga.url) #{manga.title}
+      dd #{manga.summary}
+
+    else
+      p This genre has no mangas.
+      
+  hr
+  p
+    a(href=genre.url+'/delete') Delete genre
+  p
+    a(href=genre.url+'/update') Update genre

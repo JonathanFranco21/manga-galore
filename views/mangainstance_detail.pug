@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+  h1 ID: #{mangainstance._id}
+  
+  p #[strong Title:] 
+    a(href=mangainstance.manga.url) #{mangainstance.manga.title}
+  p #[strong Imprint:] #{mangainstance.imprint}
+
+  p #[strong Status:] 
+    if mangainstance.status=='Currently Publishing'
+      span.text-success #{mangainstance.status}
+    else
+      span.text-warning #{mangainstance.status} 
+      
+  if mangainstance.status!='Currently Publishing'
+    p #[strong Due back:] #{mangainstance.due_back_formatted}
+
+  hr
+  p
+    a(href=mangainstance.url+'/delete') Delete MangaInstance
+  p
+    a(href=mangainstance.url+'/update') Update MangaInstance

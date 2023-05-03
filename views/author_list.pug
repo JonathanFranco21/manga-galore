@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each author in author_list
+      li
+        a(href=author.url) #{author.name}
+        |  (#{author.date_of_birth} - #{author.date_of_death})
+
+    else
+      li There are no characters.
+
+  img(src='/images/Anya.jpg' alt='Anya Forger' style='height: 400px;') 
+  h5 Anya Forger 

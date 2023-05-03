@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  h1 Title: #{manga.title}
+  
+  p #[strong Author:] 
+    a(href=manga.author.url) #{manga.author.name}
+  p #[strong Summary:] #{manga.summary}
+  p #[strong ISBN:] #{manga.isbn}
+  p #[strong Genre:] 
+    each val, index in manga.genre
+      a(href=val.url) #{val.name}
+      if index < manga.genre.length - 1
+        |, 
+  
+  div(style='margin-left:20px;margin-top:20px')
+    h4 Copies
+    
+    each val in manga_instances
+      hr
+      if val.status=='Available'
+        p.text-success #{val.status}
+      else if val.status=='Maintenance'
+        p.text-danger #{val.status}
+      else
+        p.text-warning #{val.status} 
+      p #[strong Imprint:] #{val.imprint}
+      if val.status!='Available'
+        p #[strong Due back:] #{val.due_back}
+      p #[strong Id:] 
+        a(href=val.url) #{val._id}
+ 
+    else
+      p There are no copies of this manga in the library.
+      
+  hr
+  p
+    a(href=manga.url+'/delete') Delete manga
+  p
+    a(href=manga.url+'/update') Update manga

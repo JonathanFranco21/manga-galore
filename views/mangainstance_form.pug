@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='manga') Manga:
+      select#manga.form-control(type='select' placeholder='Select manga' name='manga' required='true')
+        - manga_list.sort(function(a, b) {let textA = a.title.toUpperCase(); let textB = b.title.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+        for manga in manga_list
+          option(value=manga._id, selected=(selected_manga==manga._id.toString() ? 'selected' : false) ) #{manga.title}
+
+    div.form-group
+      label(for='imprint') Imprint:
+      input#imprint.form-control(type='text' placeholder='Publisher and date information' name='imprint' required='true' value=(undefined===mangainstance ? '' : mangainstance.imprint))
+    div.form-group
+      label(for='due_back') Date when manga was published:
+      input#due_back.form-control(type='date' name='due_back' value=(undefined===mangainstance ? '' : mangainstance.due_back))
+
+    div.form-group
+      label(for='status') Status:
+      select#status.form-control(type='select' placeholder='Select status' name='status' required='true')
+        option(value='Currently Publishing') Currently Publishing
+        option(value='Finished Publishing') Finished Publishing
+
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

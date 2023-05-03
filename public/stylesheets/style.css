@@ -1,0 +1,31 @@
+body {
+  background-image: linear-gradient(orange, purple, black);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+}
+
+h1, h2, h4, h5, p, a, ul, li, dd, button, label, pre {
+  color: white;
+  font-family: monaco;
+}
+
+label {
+  font-family: monaco;
+}
+
+a:link {
+  color: white;
+  text-decoration: underline;
+}
+
+.sidebar-nav {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  color: none;
+  border: none;
+}
